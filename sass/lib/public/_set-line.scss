@@ -1,4 +1,39 @@
-/// set-line
+/// Setting Root HTML line-height and font-size
+/// @requires {map} $set-line-config is the main typography settings map
+/// @require {string} $set-line-default is the name of default (no-media) style-list
 @mixin set-line() {
-	//
+
+  @include test-env($from: 'set-line()'); // Testing first
+
+  $index: 0;
+  @each $key in $set-line-config {
+    $index: $index + 1;
+    $device: nth(map-keys($set-line-config), $index);
+    $settings: nth($key, 2);
+    
+    // Main root settings
+    $root-font-size: map-get($settings, 'root-font-size');
+      @if ($root-font-size == null) { $root-font-size: 62.5%; /* default font-size */ }
+    $direction: map-get($settings, 'direction');
+      @if ($direction == null) { $direction: ltr; } /* default text direction*/
+    $breakpoint: map-get($settings, 'breakpoint');
+      @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+    $line-height: map-get($settings, 'line-height');
+      @if ($line-height == null) { @error 'Line height parameter missed.'; }
+
+    // Init no-media mobile rules first
+    @if ($device == $set-line-default) {
+      direction: $direction;
+      font-size: $root-font-size;
+      line-height: $line-height;
+    } @else {
+      // Init all other media queries
+      @media (min-width: $breakpoint) {
+        font-size: $root-font-size;
+        line-height: $line-height;
+      }
+    }
+
+  }
+
 }
