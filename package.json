@@ -10,7 +10,8 @@
   },
   "main": "sass/lib/_index.scss",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "build": "gulp build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
