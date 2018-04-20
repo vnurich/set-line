@@ -1,0 +1,31 @@
+@mixin set-styles-default() {
+  @content;
+}
+
+@mixin set-styles-media() {
+
+  $index: 0;
+  @each $key in $set-line-config {
+    $index: $index + 1;
+    $settings: nth($key, 2);
+    $device: nth(map-keys($set-line-config), $index);
+
+    $breakpoint: map-get($settings, 'breakpoint');
+      @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+
+    // Init no-media mobile rules first
+		@if ($device == $set-line-default) {
+			@media (max-width: $breakpoint) {
+				@content;
+      }
+    } @else {
+      // Init all other media queries
+			@media (min-width: $breakpoint) {
+				@content;
+			}
+    }
+    
+  }
+
+}
+//

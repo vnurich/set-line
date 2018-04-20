@@ -5,35 +5,14 @@
 
   @include test-env($from: 'set-line()'); // Testing first
 
-  $index: 0;
-  @each $key in $set-line-config {
-    $index: $index + 1;
-    $device: nth(map-keys($set-line-config), $index);
-    $settings: nth($key, 2);
-    
-    // Main root settings
-    $root-font-size: map-get($settings, 'root-font-size');
-      @if ($root-font-size == null) { $root-font-size: 62.5%; /* default font-size */ }
-    $direction: map-get($settings, 'direction');
-      @if ($direction == null) { $direction: ltr; } /* default text direction*/
-    $breakpoint: map-get($settings, 'breakpoint');
-      @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
-    $line-height: map-get($settings, 'line-height');
-      @if ($line-height == null) { @error 'Line height parameter missed.'; }
+  $i-need: (
+    'breakpoint',
+    'direction'
+    'line-height',
+    'font-size',
+  );
 
-    // Init no-media mobile rules first
-    @if ($device == $set-line-default) {
-      direction: $direction;
-      font-size: $root-font-size;
-      line-height: $line-height;
-    } @else {
-      // Init all other media queries
-      @media (min-width: $breakpoint) {
-        font-size: $root-font-size;
-        line-height: $line-height;
-      }
-    }
-
-  }
+  $received-data-settings: return-config-data-settings($i-need);
+  @include print-config($received-data-settings);
 
 }

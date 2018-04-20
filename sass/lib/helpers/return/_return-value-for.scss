@@ -1,0 +1,534 @@
+/// List of available parameters to test and return 
+/// 
+
+@function return-value-for($parameter, $with) {
+	
+	$parameter-defined: false;
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and return Cap Height
+	 * @property {number} 'line-height' expects to take REM
+	 * @property {number} 'cap-height' expects to take RATIO
+	 * @return {number} Cap height in REMs
+	*/
+	@if ($parameter == 'cap-height-rem') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'line-height': number,
+			'cap-height': number
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$line-height: map-get($data-given, 'line-height');
+		$cap-height: map-get($data-given, 'cap-height');
+
+		@if (type-of($line-height) == number and type-of($cap-height) == number) and
+				($line-height > 0 and $cap-height > 0) {
+			@return $line-height * $cap-height;
+		} @else {
+			@error 'Error while calculating "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and return Font Family string from the given list
+	 * @property {list} 'font-family-list' expects to take List of fonts
+	 * @return {string} Font-family string
+	*/
+	@if ($parameter == 'font-family') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'font-family': string
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$font-family-list: map-get($data-given, 'font-family');
+
+		// Font Family Is NOT Important
+		@if ($font-family-list == null) {
+			@return null;
+		}
+	
+		// Checking source list
+		@if (type-of($font-family-list) == list) and (length($font-family-list) > 0) {
+			$return-string: '';
+			$index: 0;
+			$font-family-list-length: length($font-family-list);
+	
+			@each $font-name in $font-family-list {
+				$index: $index + 1;
+				$prepare-font-family: '';
+	
+				// Printing sans-serif and serif without quotes
+				@if ($font-name == 'sans-serif' or $font-name == 'serif') {
+					$prepare-font-family: $font-name;
+				} @else {
+					$prepare-font-family: "\'#{$font-name}\'";
+				}
+	
+				// Adding comma
+				$return-string: $return-string + $prepare-font-family + ', ';
+	
+				@if ($index == $font-family-list-length) {
+					// Cutting comma and space at the end
+					$return-string: str-slice($return-string, 1, str-length($return-string) - 2);
+				}
+		
+			}
+	
+			@return unquote($return-string);
+	
+		} @else {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and return font-size
+	 * @property {number} 'font-size' expects to take REM
+	 * @return {number} Font size in REMs
+	*/
+	@if ($parameter == 'font-size') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'font-size': number
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$font-size: map-get($data-given, 'font-size');
+		@if (type-of($font-size) == number and $font-size > 0) {
+			@return $font-size;  
+		} @else {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+		
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and returns font-style
+	 * @property {string} 'font-style' expects to take 'normal' or 'italic'
+	 * @return {string} Font style string
+	*/
+	@if ($parameter == 'font-style') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'font-style': string
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$font-style: map-get($data-given, 'font-style');
+		// Font Style Is NOT Important
+		@if ($font-style == null) {
+			@return null;
+		}
+	
+		@if type-of($font-style) == string and
+		($font-style == 'normal' or $font-style == 'italic') {
+			@return $font-style;
+		} @else {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Font style Should be "normal" or "italic".';
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Return font-weight
+	 * @property {string} 'font-weight' string or number
+	 * @return {string/number} Font weight
+	*/
+	@if ($parameter == 'font-weight') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'font-weight': string
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$font-weight: map-get($data-given, 'font-weight');
+
+		// Font Weight Is NOT Important
+		@if ($font-weight == null) {
+			@return null;
+		}
+	
+		// Permissible values
+		$font-weight-var: (
+			normal, bold, lighter, bolder, inherit,
+			100, 200, 300, 400, 500, 600, 700, 800, 900
+		);
+		$value-founded: false;
+	
+		@each $value in $font-weight-var {
+			@if $value == $font-weight {
+				$value-founded: true;
+				@return $font-weight;
+			}
+		}
+	
+		@if (not $value-founded) {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and retrurn Line Height depending on the Font Size
+	 * @property {number} 'line-height' expects to take REM
+	 * @property {number} 'font-size' expects to take REM
+	 * @return {number} Line height in REMs
+	*/
+	@if ($parameter == 'line-height') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'line-height': number,
+			'font-size': number
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$line-height: map-get($data-given, 'line-height');
+		$font-size: map-get($data-given, 'font-size');
+		/**
+     * Rule 1
+     * If font-size less than line-height:
+    */
+    @if $font-size < $line-height {
+      @return $line-height;	
+
+    /**
+     * Rule 2 if not Rule 1
+     * If font-size more or equal than line-height
+    */
+    } @else if $font-size >= $line-height {
+
+      /**
+       * Rule 2.1
+       * If font-size fits in a half-sized line
+      */
+      $extra-size-half: $line-height * 1.5;
+      @if $font-size <= $extra-size-half {
+        // @debug 'Line Height multiplied by 1.5 -> #{$extra-size-half}.';
+        @return $extra-size-half;
+      }
+
+      /**
+       * Rule 2.2
+       * If font-size fits in a double-sized line
+      */
+      $extra-size-max:  $line-height * 2;
+      @if $font-size > $extra-size-half and $font-size <= $extra-size-max {
+        // @debug 'Line Height multiplied by 2 -> #{$extra-size-max}.';
+        @return $extra-size-max;
+      }
+
+      /**
+       * Rule 2.3
+       * If font-size does not fit in 2 lines we decide that it's too big
+      */
+      @if $font-size > $extra-size-max {
+        @error 'Max font size for "line-height: #{$line-height}" must be less or equal #{$extra-size-max}.';
+      } 
+      
+    }
+	}
+
+	////////////////////////////////////////////////////////////
+	
+	/**
+	 * Test and return Margin Bottom
+	 * @property {number} 'line-height' expects to take REM
+	 * @property {number} 'cap-height' expects to take RATIO
+	 * @property {number} 'font-size' expects to take REM
+	 * @property {number} 'space-bottom' expects to take positive integer >= 0
+	 * @return {number} Margin Bottom in REMs
+	 */
+	@if ($parameter == 'margin-bottom') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'line-height': number,
+			'cap-height': number,
+			'font-size': number,
+			'space-bottom': number
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$line-height: map-get($data-given, 'line-height');
+		$cap-height: map-get($data-given, 'cap-height');
+		$font-size: map-get($data-given, 'font-size');
+		$space-bottom: map-get($data-given, 'space-bottom');
+
+		// Space bottom is NOT iportant
+    @if ($space-bottom == null) {
+      $space-bottom: 1; // default
+    }
+
+    /**
+     * Rule 0
+     * Checking space-bottom value
+    */
+    @if type-of($space-bottom) == number and 
+        ceil($space-bottom) >= 0 {
+
+        /**
+         * Rule 1 if Rule 0
+         * If font-size less than line-height:
+        */
+        @if $font-size < $line-height {
+
+          /**
+           * Rule 1.1
+           * Calculating space bottom -- number of "lines" at the top of element
+          */
+          @if $space-bottom == 0 {
+            @return $line-height * $cap-height - $line-height;
+          } @else {
+            @return $line-height * $cap-height + $line-height * ($space-bottom - 1);
+          }
+
+        /**
+         * Rule 2 if not Rule 1
+         * If font-size more or equal than line-height
+        */
+        } @else if $font-size >= $line-height {
+          
+          /**
+           * Rule 2.1
+           * If font-size fits in a half-sized line
+          */
+          $extra-size-half: $line-height * 1.5;
+          @if $font-size <= $extra-size-half {
+
+            /**
+             * Rule 2.1.1
+             * Calculating bottom top -- number of "lines" at the bottom of element
+            */
+            // @debug 'Margin bottom multiplied by 1.5 -> #{$extra-size-half}.';
+            @if $space-bottom == 0 {
+              @return $line-height * $cap-height;
+            } @else {
+              @return $line-height * $cap-height + $line-height * ($space-bottom - 1) + $line-height;
+            }
+          }
+          
+          /**
+           * Rule 2.2
+           * If font-size fits in a double-sized line
+          */
+          $extra-size-max:  $line-height * 2;
+          @if $font-size > $extra-size-half and $font-size <= $extra-size-max {
+
+            /**
+             * Rule 2.2.1
+             * Calculating space bottom -- number of "lines" at the bottom of element
+            */
+            // @debug 'Margin bottom multiplied by 2 -> #{$extra-size-max}.';
+            @if $space-bottom == 0 {
+              @return $line-height * $cap-height;
+            } @else {
+              @return $line-height * $cap-height + $line-height * ($space-bottom - 1) + $line-height;
+            }
+          }
+          
+          /**
+           * Rule 2.3
+           * If font-size does not fit in 2 lines we decide that it's too big
+          */
+          @if $font-size > $extra-size-max {
+            @error 'Max font size for "line-height: #{$line-height}" must be less or equal #{$extra-size-max}.';
+          }
+
+        }
+    /**
+     * if not Rule 0 
+     * If space-bottom value is not a positive integer
+    */
+    } @else {
+      @error 'Wrong Space Bottom parameter. Must be positive integer (0, 1, 2...99)';
+    }	
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and returns Padding Top
+	 * @property {number} 'line-height expects to take REM
+	 * @property {number} 'cap-height-rem' expects to take REM
+	 * @property {number} 'font-size' expects to take REM
+	 * @property {number} 'space-top' expects to take positive integer >= 0
+	 * @return {number} Returns Padding Top in REMs
+	*/
+	@if ($parameter == 'padding-top') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'line-height': number,
+			'cap-height-rem': number,
+			'font-size': number,
+			'space-top': number
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$line-height: map-get($data-given, 'line-height');
+		$cap-height-rem: map-get($data-given, 'cap-height-rem');
+		$font-size: map-get($data-given, 'font-size');
+		$space-top: map-get($data-given, 'space-top');
+
+		// Space top is NOT iportant
+    @if ($space-top == null) {
+      $space-top: 0; // default
+    }
+
+    /*Rule 0
+      Checking space-top value
+    */
+    @if type-of($space-top) == number and 
+        ceil($space-top) >= 0 {
+    
+			/*Rule 1 if Rule 0
+				If font-size less than line-height:
+			*/
+			@if $font-size < $line-height {
+
+				/*Rule 1.1
+					Calculating space top -- number of "lines" at the top of element
+				*/
+				@if $space-top == 0 {
+						@return $line-height - $cap-height-rem;
+				} @else if $space-top > 0 {
+						@return $line-height - $cap-height-rem + $line-height * $space-top;
+				}
+
+			/*Rule 2 if not Rule 1
+				If font-size more or equal than line-height
+			*/
+			} @else if $font-size >= $line-height {
+
+				/*Rule 2.1
+					If font-size fits in a half-sized line
+				*/
+				$extra-size-half: $line-height * 1.5;
+				@if $font-size <= $extra-size-half {
+
+					/*Rule 2.1.1
+						Calculating space top -- number of "lines" at the top of element
+					*/
+					// @debug 'Padding Top multiplied by 1.5 -> #{$extra-size-half}.';
+					@if $space-top == 0 {
+							@return $extra-size-half - $cap-height-rem;
+					} @else {
+							@return $extra-size-half - $cap-height-rem + ($line-height * $space-top);
+					}			
+				}
+
+				/*Rule 2.2
+					If font-size fits in a double-sized line
+				*/
+				$extra-size-max:  $line-height * 2;
+				@if $font-size > $extra-size-half and $font-size <= $extra-size-max {
+
+					/*Rule 2.2.1
+						Calculating space top -- number of "lines" at the top of element
+					*/
+					// @debug 'Padding Top multiplied by 2 -> #{$extra-size-max}.';
+					@if $space-top == 0 {
+						@return 0 - $cap-height-rem + $line-height;
+					} @else {
+						@return $extra-size-max - $cap-height-rem + $line-height * ($space-top - 1);
+					}
+				}
+					
+				/*Rule 2.3
+					If font-size does not fit in 2 lines we decide that it's too big
+				*/
+				@if $font-size > $extra-size-max {
+						@error 'Max Font Size for "line-height: #{$line-height}" must be less or equal #{$extra-size-max}.';
+				}
+
+			}
+
+    /*if not Rule 0
+      If space-top value is not a positive integer
+    */
+    } @else {
+        @error 'Wrong Space Top parameter. Must be positive integer (0, 1, 2...99)';
+		}	
+		
+	}
+
+	////////////////////////////////////////////////////////////
+
+	/**
+	 * Test and return text-align
+	 * @property {string} 'text-align'
+	 * @return {string} Return text-align string
+	*/
+	@if ($parameter == 'text-align') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'text-align': string
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$text-align: map-get($data-given, 'text-align');
+
+		// Text Align Is NOT Important
+		@if ($text-align == null) {
+			@return null;
+		}
+	
+		// Permissible values
+		$text-align-var: (
+			left, right, center, justify
+		);
+		$value-founded: false;
+	
+		@each $value in $text-align-var {
+			@if $value == $text-align {
+				$value-founded: true;
+				@return $text-align;
+			}
+		}
+	
+		@if ($value-founded == false) {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	@if (not $parameter-defined) {
+		@error 'Error: "#{$parameter}" is unknown parameter to return.';
+	}
+
+}
+//

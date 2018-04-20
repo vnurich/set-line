@@ -1,23 +1,43 @@
 /// Sample config map
 $set-config-sample: (
   'phone-vertical': (
-    'breakpoint':  35.999em, // 575.999px
-    'line-height': 2rem
+    'settings': (
+      'font-size': 100%,
+      'breakpoint':  35.999em, // 575.999px
+      'line-height': 2rem
+    ),
+    'elements': ()
   ),  
 	'phone-horizontal': (
-    'breakpoint':  36em, // 576px
-    'line-height': 2.2rem
+    'settings': (
+      'font-size': 100%,
+      'breakpoint':  36em, // 576px
+      'line-height': 2.2rem
+    ),
+    'elements': ()
 	),
 	'tablet': (
-    'breakpoint':  48em, // 768px
-    'line-height': 2.8rem
+    'settings': (
+      'font-size': 100%,
+      'breakpoint':  48em, // 768px
+      'line-height': 2.8rem
+    ),
+    'elements': ()
   ),
   'terminal': (
-    'breakpoint':  62em, // 992px
-    'line-height': 2.8rem
+    'settings': (
+      'font-size': 100%,
+      'breakpoint':  62em, // 992px
+      'line-height': 2.8rem
+    ),
+    'elements': ()
 	), 
 	'desktop': (
-    'breakpoint':  87.5em, // 1400px
-    'line-height': 3rem
+    'settings': (
+      'font-size': 100%,
+      'breakpoint':  87.5em, // 1400px
+      'line-height': 3rem
+    ),
+    'elements': ()
   )
 );

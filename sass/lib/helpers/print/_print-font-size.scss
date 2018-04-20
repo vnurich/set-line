@@ -1,0 +1,8 @@
+@mixin print-font-size($font-size) {
+  @if ($font-size != null) {
+		font-size: $font-size;
+  } @else {
+    @error 'Font size is important parameter and can not be omitted.';
+  }
+}
+//

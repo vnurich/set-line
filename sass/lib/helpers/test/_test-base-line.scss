@@ -36,6 +36,10 @@
 		@include set-baseline--before($line-height, $break, $width, $color, $test-lines);
   }
   
+  /**
+   * Preparing data
+  */
+
   // Walking settings map
 	$index: 0;
 	@each $key in $set-line-config {
