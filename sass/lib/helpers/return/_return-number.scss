@@ -1,10 +1,14 @@
 /// Test and return number from a string
-/// 
+/// @autor https://codepen.io/corysimmons/pen/mVLVbo
+/// @param {string/number} $value
+/// @return {number} string -> number
 @function return-number($value) {
   @if type-of($value) == 'number' {
     @return $value;
-  } @else if type-of($value) != 'string' {
-    $_: log('Value for `return-number` should be a number or a string.');
+  }
+  
+  @if type-of($value) != string {
+    @error 'Value for return-number() must be a string.';
   }
   
   $result: 0;
@@ -29,5 +33,5 @@
     }
   }
   
-  @return if($minus, -$result, $result);;
+  @return if($minus, -$result, $result);
 }

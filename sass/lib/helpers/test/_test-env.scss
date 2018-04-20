@@ -1,17 +1,17 @@
 /// Entry test
-/// @requires $root-typography-settings
-/// @requires $root-typography-minimal
+/// @requires $set-line-config
+/// @requires $set-line-default
 /// @param {string} $from - any alias
 @mixin test-env($from: null) {
 
   @if $from == null { $from: 'nowhere'; }
 
   @if $set-line-config == null or type-of($set-line-config) != map {
-    @error 'From: #{$from}. Please set $root-typography-settings var before executing mixins.';
+    @error 'From: #{$from}. Please set $set-line-config var before executing mixins.';
   }
 
   @if $set-line-default == null {
-    @error 'From: #{$from}. Please set $root-typography-default var before executing mixins';
+    @error 'From: #{$from}. Please set $set-line-default var before executing mixins.';
   }
 
 }

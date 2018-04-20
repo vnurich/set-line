@@ -1,5 +1,22 @@
 /// List of available parameters to test and return 
-/// 
+/// Important for Root:
+///   - font-size;
+///   - line-height.
+/// Important for Rhythm:
+///   - cap-height-rem;
+///   - font-size;
+///   - line-height;
+///   - margin-bottom;
+///   - padding-top.
+/// The rest parameters are not important:
+///   - direction;
+///   - font-family;
+///   - font-style;
+///   - font-weight;
+///   - text-align.
+/// @property {string} $parameter
+/// @property {map} $with
+/// @return {string/number} Returns required value
 
 @function return-value-for($parameter, $with) {
 	
@@ -30,7 +47,7 @@
 				($line-height > 0 and $cap-height > 0) {
 			@return $line-height * $cap-height;
 		} @else {
-			@error 'Error while calculating "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while calculating "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 
 	}
@@ -88,7 +105,7 @@
 			@return unquote($return-string);
 	
 		} @else {
-			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 
 	}
@@ -113,7 +130,7 @@
 		@if (type-of($font-size) == number and $font-size > 0) {
 			@return $font-size;  
 		} @else {
-			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 		
 	}
@@ -187,7 +204,7 @@
 		}
 	
 		@if (not $value-founded) {
-			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 	}
 
@@ -527,7 +544,7 @@
 		}
 	
 		@if ($value-founded == false) {
-			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 
 	}
@@ -552,7 +569,7 @@
 
 		// Text direction Is NOT Important
 		@if ($direction == null) {
-			@return ltr;
+			@return null;
 		}
 	
 		// Permissible values
@@ -569,7 +586,7 @@
 		}
 	
 		@if ($value-founded == false) {
-			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Config file.';
 		}
 
 	}

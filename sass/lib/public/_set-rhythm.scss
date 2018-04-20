@@ -41,31 +41,33 @@
   @include test-env($from: 'set-rhythm()'); // Testing first
   
   @if ($element == null) { @error 'Element parameter can not be omitted.'};
+  
+  // Main parameters: font-size and line-height
+  // Every $set-... var takes REM units
+  $set-font-size: return-value-for('font-size',
+    $with: ('font-size': $font-size));
+
+  $set-line-height: return-value-for('line-height',
+    $with: (
+      'line-height': $line-height,
+      'font-size': $font-size
+  ));
 
   // Printing regular elements style
   @if ($element != 'root') {
+    
     @if ($line-height == null) { @error 'Line height parameter can not be omitted.'};
     @if ($font-size == null) { @error 'Font size parameter can not be omitted.'};
     @if ($cap-height == null) { @error 'Cap height parameter can not be omitted.'};
-    
-    // Every $set-... var takes REM units
-    $set-font-family: return-value-for('font-family',
-    $with: ('font-family': $font-family));
 
-    $set-font-size: return-value-for('font-size',
-      $with: ('font-size': $font-size));
+    $set-font-family: return-value-for('font-family',
+      $with: ('font-family': $font-family));
 
     $set-font-style: return-value-for('font-style',
       $with: ('font-style': $font-style));
 
     $set-font-weight: return-value-for('font-weight',
       $with: ('font-weight': $font-weight));
-
-    $set-line-height: return-value-for('line-height',
-      $with: (
-        'line-height': $line-height,
-        'font-size': $font-size
-    ));
 
     $set-margin-bottom: return-value-for('margin-bottom',
       $with: (
@@ -107,18 +109,11 @@
     /**/ @include print-font-style($set-font-style);
     /**/ @include print-text-align($set-text-align);
     /********************************************/
+    
   }
 
   // Printing root styles
   @else {
-    $set-font-size: return-value-for('font-size',
-      $with: ('font-size': $font-size));
-
-    $set-line-height: return-value-for('line-height',
-      $with: (
-        'line-height': $line-height,
-        'font-size': $font-size
-    ));
 
     $set-direction: return-value-for('direction',
       $with: ('direction': $direction));
@@ -136,4 +131,5 @@
     /**/ @if ($before-media) { @include print-direction($set-direction); }
     /********************************************/
   }
+
 }

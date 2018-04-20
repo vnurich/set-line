@@ -8,7 +8,7 @@
 
   // Check input
   @if (type-of($device) != number) and (type-of($device) != string) {
-    @error 'The $breakpoint parameter can only be a number or a string.';
+    @error 'The $root-breakpoint parameter can only be a number or a string.';
   }
 
   // First check by name inside settings map
@@ -22,13 +22,13 @@
     $element-settings: map-get(nth($key, 2), 'root');
       @if $element-settings == null { @error 'Element "root" was not found in Settings Map.'; }
     
-    $breakpoint: map-get($element-settings, 'breakpoint');
-      @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+    $root-breakpoint: map-get($element-settings, 'breakpoint');
+      @if ($root-breakpoint == null) { @error 'Breakpoint parameter missed.'; }
 
     // Print @media end finish
     @if ($device-in-loop == $device) {
       $device-exist: true;
-      @media (min-width: $breakpoint) {
+      @media (min-width: $root-breakpoint) {
         @content;
       }
     }
