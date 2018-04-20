@@ -5,7 +5,7 @@
 	
 	$parameter-defined: false;
 
-	////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
 
 	/**
 	 * Test and return Cap Height
@@ -209,8 +209,16 @@
 		$data-given: test-input-data($with, $expected-data);
 
 		// Testing values
-		$line-height: map-get($data-given, 'line-height');
-		$font-size: map-get($data-given, 'font-size');
+    $line-height: map-get($data-given, 'line-height');
+    $font-size: map-get($data-given, 'font-size');
+
+    // What if font-size is a number with %
+    $font-size-last-char: str-slice(quote($font-size), str-length(quote($font-size)));
+    @if ($font-size-last-char == '%') {
+      $font-size-number: str-slice(quote($font-size), 1, str-length(quote($font-size)) - 1);
+      $font-size: 0.016 * return-number($font-size-number) * 1rem;
+    }
+    
 		/**
      * Rule 1
      * If font-size less than line-height:
@@ -524,7 +532,49 @@
 
 	}
 
-	////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
+  /**
+	 * Test and return direction
+	 * @property {string} 'direction'
+	 * @return {string} Return direction string
+	*/
+	@if ($parameter == 'direction') {
+		// Testing input data
+		$parameter-defined: true;
+		$expected-data: (
+			'direction': string
+		);
+		$data-given: test-input-data($with, $expected-data);
+
+		// Testing values
+		$direction: map-get($data-given, 'direction');
+
+		// Text direction Is NOT Important
+		@if ($direction == null) {
+			@return ltr;
+		}
+	
+		// Permissible values
+		$direction-var: (
+			ltr, rtl, inherit
+		);
+		$value-founded: false;
+	
+		@each $value in $direction-var {
+			@if $value == $direction {
+				$value-founded: true;
+				@return $direction;
+			}
+		}
+	
+		@if ($value-founded == false) {
+			@error 'Error while preparing "#{$parameter}" with data: "#{$with}". Look inside your Fonts Pack file.';
+		}
+
+	}
+
+  ////////////////////////////////////////////////////////////
 
 	@if (not $parameter-defined) {
 		@error 'Error: "#{$parameter}" is unknown parameter to return.';

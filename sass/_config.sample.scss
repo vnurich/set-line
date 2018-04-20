@@ -1,43 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i');
+$font-family-serif: ('Merriweather', 'Times New Roman', 'serif');
+$font-family-sans-serif: ('Merriweather Sans', 'sans-serif');
+
 /// Sample config map
 $set-config-sample: (
   'phone-vertical': (
-    'settings': (
-      'font-size': 100%,
-      'breakpoint':  35.999em, // 575.999px
+    'root': (
+      'font-size': 62.5%,
+      'breakpoint':  35.999em, // ~575px
       'line-height': 2rem
     ),
-    'elements': ()
+    'p': ('font-size': 1.4rem, 'cap-height': 0.8, 'space-top': 0, 'space-bottom': 1, 'font-weight': 400, 'font-style': normal, 'text-align': justify, 'font-family': $font-family-serif),
+    'h1': ('font-size': 2rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h2': ('font-size': 1.9rem, 'cap-height': 0.88, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700,  'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h3': ('font-size': 1.8rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h4': ('font-size': 1.8rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h5': ('font-size': 1.8rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h6': ('font-size': 1.6rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'test-element': ('font-size': 2rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
   ),  
-	'phone-horizontal': (
-    'settings': (
-      'font-size': 100%,
+  'phone-horizontal': (
+    'root': (
+      'font-size': 62.5%,
       'breakpoint':  36em, // 576px
       'line-height': 2.2rem
     ),
-    'elements': ()
-	),
-	'tablet': (
-    'settings': (
-      'font-size': 100%,
+    'p':  ('font-size': 1.6rem, 'cap-height': 0.8, 'space-top': 0, 'space-bottom': 1, 'font-weight': 400, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h1': ('font-size': 2.8rem, 'cap-height': 0.74, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h2': ('font-size': 2.2rem, 'cap-height': 0.64, 'space-top': 1, 'space-bottom': 0, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h3': ('font-size': 2.1rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h4': ('font-size': 2.1rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h5': ('font-size': 2rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h6': ('font-size': 1.8rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'test-element': ('font-size': 2.2rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+  ),
+  'tablet': (
+    'root': (
+      'font-size': 62.5%,
       'breakpoint':  48em, // 768px
       'line-height': 2.8rem
     ),
-    'elements': ()
+    'p': ('font-size': 1.8rem, 'cap-height': 0.74, 'space-top': 0, 'space-bottom': 1, 'font-weight': 400, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h1': ('font-size': 3.2rem, 'cap-height': 0.68, 'space-top': 0, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h2': ('font-size': 2.6rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h3': ('font-size': 2.4rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h4': ('font-size': 2.4rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h5': ('font-size': 2.2rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h6': ('font-size': 2rem, 'cap-height': 0.78, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'test-element': ('font-size': 2.8rem, 'cap-height': 0.66, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
   ),
   'terminal': (
-    'settings': (
-      'font-size': 100%,
+    'root': (
+      'font-size': 62.5%,
       'breakpoint':  62em, // 992px
       'line-height': 2.8rem
     ),
-    'elements': ()
-	), 
-	'desktop': (
-    'settings': (
-      'font-size': 100%,
+    'p':  ('font-size': 1.8rem, 'cap-height': 0.74, 'space-top': 0, 'space-bottom': 1, 'font-weight': 400, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h1': ('font-size': 3.6rem, 'cap-height': 0.72, 'space-top': 0, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h2': ('font-size': 3rem, 'cap-height': 0.68,'space-top': 1,'space-bottom': 0,'font-weight': 700,'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h3': ('font-size': 2.8rem, 'cap-height': 0.64, 'space-top': 1, 'space-bottom': 0, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h4': ('font-size': 2.6rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h5': ('font-size': 2.4rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h6': ('font-size': 2.2rem, 'cap-height': 0.8, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'test-element': ('font-size': 2.8rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+  ), 
+  'desktop': (
+    'root': (
+      'font-size': 62.5%,
       'breakpoint':  87.5em, // 1400px
       'line-height': 3rem
     ),
-    'elements': ()
+    'p': ('font-size': 2rem, 'cap-height': 0.76, 'space-top': 0, 'space-bottom': 1, 'font-weight': 300, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
+    'h1': ('font-size': 4.6rem, 'cap-height': 0.58, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'h2': ('font-size': 4rem,  'cap-height': 0.74, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h3': ('font-size': 3.6rem, 'cap-height': 0.7, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h4': ('font-size': 3.4rem, 'cap-height': 0.66, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h5': ('font-size': 3.2rem, 'cap-height': 0.64, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'h6': ('font-size': 3rem, 'cap-height': 0.62, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
+    'test-element': ('font-size': 3rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': normal, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
   )
 );

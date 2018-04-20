@@ -1,0 +1,6 @@
+@mixin print-font-family($font-family) {
+  @if ($font-family != null) {
+    font-family: $font-family;
+  }
+}
+//

@@ -12,17 +12,42 @@ $set-line-default: 'phone-vertical';
 
 * { box-sizing: border-box }
 
-html { @include set-line(); }
+html { @include set-line('root'); }
 
 body {
-  /*
+
   @include test-baseline(
     $break: 1,
     $width: 1px,
     $color: rgba(173, 173, 173, 0.336),
     $test-lines: 100
   );
-  */
   
 	width: 100%; height: 300rem; margin: 0; padding: 0;
+}
+
+p   { @include set-line('p'); } 
+h1  { @include set-line('h1'); }
+h2  { @include set-line('h2'); }
+h3  { @include set-line('h3'); }
+h4  { @include set-line('h4'); }
+h5  { @include set-line('h5'); }
+h6  { @include set-line('h6'); }
+
+.test-element { @include set-line('p', $debug: false); }
+
+.test-block {
+  @include test-baseline(
+    $break: 2,
+    $width: 1px,
+    $color: rgba(17, 189, 152, 0.295)
+	);
+  
+  max-width: 70rem; overflow: hidden; margin: 0 auto;
+  @media (min-width: 87.5em) { max-width: 96rem }
+
+  color: #000;
+  @include set-breakpoint('terminal') {
+    color: #222;
+  }
 }

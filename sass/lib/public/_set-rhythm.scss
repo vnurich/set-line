@@ -1,0 +1,139 @@
+/// Printing main typography styles
+/// @param {string} $element expects to take element name from the config file
+/// @param {number} $line-height expects to take REM
+/// @param {number} $font-size expects to take REM
+/// @param {number} $cap-height expects to take RATIO
+/// @param {number} $space-top expects to take positive integer >= 0
+/// @param {number} $space-bottom expects to take positive integer >= 0
+/// @param {string} $font-weight expects to take rel format (e.g. 'normal', 400, etc.)
+/// @param {string} $font-style expects to take rel format (e.g. italic, normal, inherit)
+/// @param {string} $font-align expects to take rel format (e.g. left, right, justify)
+/// @param {list} $font-family expects to take list of strings with font-families
+/// @param {string} $before-media flag for excluding some parameters when printing styles @see /sass/helpers/_set-line-for.scss:80
+@mixin set-rhythm(
+    /**
+     * Sample
+     * $line-height:		2.4rem,
+     * $font-size:			1.6rem,
+     * $cap-height:		  0.7,
+     * $space-top:			0,
+     * $space-bottom: 	1,
+     * $font-weight:		'normal',
+     * $font-style:     'normal',
+     * $text-align:     'left',
+     * $font-family:    'sans-serif',
+     * $before-media:   null
+    */
+    $element: null, // important
+    $line-height: null, // important
+    $font-size: null, // important
+    $cap-height: null, // important
+    $space-top: null,
+    $space-bottom: null,
+    $font-weight: null,
+    $font-style: null,
+    $text-align: null,
+    $font-family: null,
+    $direction: null,
+    $before-media: null
+  ) {
+
+  @include test-env($from: 'set-rhythm()'); // Testing first
+  
+  @if ($element == null) { @error 'Element parameter can not be omitted.'};
+
+  // Printing regular elements style
+  @if ($element != 'root') {
+    @if ($line-height == null) { @error 'Line height parameter can not be omitted.'};
+    @if ($font-size == null) { @error 'Font size parameter can not be omitted.'};
+    @if ($cap-height == null) { @error 'Cap height parameter can not be omitted.'};
+    
+    // Every $set-... var takes REM units
+    $set-font-family: return-value-for('font-family',
+    $with: ('font-family': $font-family));
+
+    $set-font-size: return-value-for('font-size',
+      $with: ('font-size': $font-size));
+
+    $set-font-style: return-value-for('font-style',
+      $with: ('font-style': $font-style));
+
+    $set-font-weight: return-value-for('font-weight',
+      $with: ('font-weight': $font-weight));
+
+    $set-line-height: return-value-for('line-height',
+      $with: (
+        'line-height': $line-height,
+        'font-size': $font-size
+    ));
+
+    $set-margin-bottom: return-value-for('margin-bottom',
+      $with: (
+        'line-height': $line-height,
+        'cap-height': $cap-height,
+        'font-size': $font-size,
+        'space-bottom': $space-bottom
+    ));
+
+    $set-text-align: return-value-for('text-align',
+      $with: ('text-align': $text-align));
+
+    $set-padding-top: return-value-for('padding-top',
+      $with: (
+        'line-height': $line-height,
+        'cap-height-rem': return-value-for('cap-height-rem',
+          $with: (
+            'line-height': $line-height,
+            'cap-height': $cap-height)),
+        'font-size': $font-size,
+        'space-top': $space-top
+    ));
+
+    /**
+    * IMPORTANT
+    /**/
+    /**/ @if ($before-media) { @include print-margin-padding(); }
+    /**/ @include print-font-size($set-font-size);
+    /**/ @include print-line-height($set-line-height);
+    /**/ @include print-padding-top($set-padding-top);
+    /**/ @include print-margin-bottom($set-margin-bottom);
+    /**************************************************/
+
+    /**
+    * NOT IMPORTANT
+    /**/
+    /**/ @include print-font-weight($set-font-weight);
+    /**/ @include print-font-family($set-font-family);
+    /**/ @include print-font-style($set-font-style);
+    /**/ @include print-text-align($set-text-align);
+    /********************************************/
+  }
+
+  // Printing root styles
+  @else {
+    $set-font-size: return-value-for('font-size',
+      $with: ('font-size': $font-size));
+
+    $set-line-height: return-value-for('line-height',
+      $with: (
+        'line-height': $line-height,
+        'font-size': $font-size
+    ));
+
+    $set-direction: return-value-for('direction',
+      $with: ('direction': $direction));
+
+    /**
+    * IMPORTANT
+    /**/
+    /**/ @include print-font-size($set-font-size);
+    /**/ @include print-line-height($set-line-height);
+    /**************************************************/
+
+    /**
+    * NOT IMPORTANT
+    /**/
+    /**/ @if ($before-media) { @include print-direction($set-direction); }
+    /********************************************/
+  }
+}

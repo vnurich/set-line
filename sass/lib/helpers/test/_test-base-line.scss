@@ -44,14 +44,19 @@
 	$index: 0;
 	@each $key in $set-line-config {
 		$index: $index + 1;
-		$device: nth(map-keys($set-line-config), $index);
-    $settings: nth($key, 2);
+    $device: nth(map-keys($set-line-config), $index);
+    $breakpoint: null;
+
+    // Element's settings
+    $element-settings: map-get(nth($key, 2), 'root');
+      @if $element-settings == null { @error 'Element "root" was not found in Settings Map.'; }
 
     // Main root settings
-    $breakpoint: map-get($settings, 'breakpoint');
-      @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
-    $line-height: map-get($settings, 'line-height');
-      @if ($line-height == null) { @error 'Line height parameter missed.'; }
+    $breakpoint: map-get($element-settings, 'breakpoint');
+    $line-height: map-get($element-settings, 'line-height');
+   
+    @if ($breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+    @if ($line-height == null) { @error 'Line height parameter missed.'; }
     
     // Init no-media mobile rules first
 		@if ($device == $set-line-default) {

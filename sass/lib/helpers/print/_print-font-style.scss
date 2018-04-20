@@ -1,0 +1,6 @@
+@mixin print-font-style($font-style) {
+  @if ($font-style != null) {
+    font-style: $font-style;
+  }
+}
+//

@@ -1,0 +1,8 @@
+@mixin print-margin-bottom($margin-bottom) {
+  @if ($margin-bottom != null) {
+    margin-bottom: $margin-bottom;
+  } @else {
+    @error 'Margin bottom is important parameter and can not be omitted.';
+  }
+}
+//

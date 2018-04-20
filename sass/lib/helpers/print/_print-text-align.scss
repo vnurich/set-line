@@ -1,0 +1,6 @@
+@mixin print-text-align($text-align) {
+  @if ($text-align != null) {
+    text-align: $text-align;
+  }
+}
+//

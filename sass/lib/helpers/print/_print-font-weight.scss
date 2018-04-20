@@ -1,0 +1,6 @@
+@mixin print-font-weight($font-weight) {
+  @if ($font-weight != null) {
+    font-weight: $font-weight;
+  }
+}
+//
