@@ -19,10 +19,10 @@
     $device-in-loop: nth(map-keys($set-line-config), $index);
     
     // Root settings
-    $element-settings: map-get(nth($key, 2), 'root');
-      @if $element-settings == null { @error 'Element "root" was not found in Settings Map.'; }
+    $root-settings: map-get(nth($key, 2), 'root');
+      @if $root-settings == null { @error 'Element "root" was not found in Settings Map.'; }
     
-    $root-breakpoint: map-get($element-settings, 'breakpoint');
+    $root-breakpoint: map-get($root-settings, 'breakpoint');
       @if ($root-breakpoint == null) { @error 'Breakpoint parameter missed.'; }
 
     // Print @media end finish

@@ -11,12 +11,14 @@
   width: 100%; min-height: 100%; line-height: ($line-height / $break);
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
-  font-family: monospace; font-size: 10px; font-weight: bold; color: red;
-  @if type-of($test-lines) == number and ceil($test-lines) > 0 {
+	font-family: monospace; font-size: 11px; font-weight: bold; color: rgb(0, 0, 0);
+	overflow: hidden;
+  @if (type-of($test-lines) == number and ceil($test-lines) > 0) or ($test-lines == auto) {
     position: absolute;
-    $point-lines: 'line-height: #{$line-height}\a';
-    @for $i from 1 through ceil($test-lines) {
-      $point-lines: $point-lines+'line #{$i}\a';
+		$point-lines: ' line-height: #{$line-height}\a';
+		@if ($test-lines == auto) { $test-lines: 100; }
+    @for $i from 2 through ceil($test-lines) {
+      $point-lines: $point-lines+' line #{$i}\a';
     }
     content: $point-lines; z-index: 1; white-space: pre; text-align: left;
   } @else {
@@ -29,9 +31,19 @@
 /// @param {number} $width line's border height
 /// @param {string} $color line's color
 /// @param {number} $test-lines Number of lines to highlight
-@mixin test-baseline($break: 2, $width: 1px, $color: rgba(20, 243, 150, 0.384), $test-lines: 0) {
+@mixin test-baseline($break: 2, $width: 1px, $color: rgba(34, 167, 111, 0.63), $test-lines: 0) {
 	$line-height: 2.4rem; // default
 	padding: 0; position: relative;
+
+	@if (type-of($test-lines) == number and ceil($test-lines) > 0) or ($test-lines == auto) {
+		&:after {
+			position: absolute; content: '';
+			background-color: $color;
+			width: 12rem; height: 100%;
+			top: 0; left: 0;
+		}
+	}
+
 	&:before {
 		@include set-baseline--before($line-height, $break, $width, $color, $test-lines);
   }

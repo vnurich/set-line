@@ -4,7 +4,7 @@
 /// @param {string} $element 
 /// @param {number} $transition opt. transition time
 /// @param {boolean} $debug for logging element's parameters in loop
-@mixin set-line($element, $transition: null, $debug: false) {
+@mixin set-line($element, $default: null, $transition: null, $debug: false) {
 
   @include test-env($from: 'set-line()'); // Testing first
 
