@@ -1,9 +1,10 @@
-/// Setting Typography With Breakpoints For Selected Element
-/// @requires {string} $set-line-default
-/// @requires {map} $set-line-config
-/// @param {string} $element 
-/// @param {number} $transition opt. transition time
-/// @param {boolean} $debug for logging element's parameters in loop
+/** Setting Styles with Breakpoints for selected Element
+ * @requires {string} $set-line-default
+ * @requires {map} $set-line-config
+ * @param {string} $element 
+ * @param {number} $transition opt. transition time
+ * @param {boolean} $debug for logging element's parameters in loop
+ */
 @mixin set-line($element, $default: null, $transition: null, $debug: false) {
 
   @include test-env($from: 'set-line()'); // Testing first

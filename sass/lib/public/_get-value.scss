@@ -1,0 +1,36 @@
+/**
+ * Get any value from the Config map
+ * @param {string} $name - Property name (e.g. line-height or font-size)
+ * @param {string} $for - Element name (e.g. root, p, h1, any)
+ * @param {string} $on - Device name (e.g. tablet, desktop)
+ * @return {any} Requested value from the Config map
+ */
+@function get-value($name: null, $for: null, $on: null) {
+  $return-value: null;
+
+  @if ($name == null) { @error '$name parameter can not be omitted.'; }
+  @if ($for == null) { @error '$for parameter can not be omitted.'; }
+  @if ($on == null) { @error '$on parameter can not be omitted.'; }
+
+  $index: 0;
+  @each $key in $set-line-config {
+    $index: $index + 1;
+    $device-in-loop: nth(map-keys($set-line-config), $index);
+    
+    @if ($device-in-loop == $on) {
+      // Element's settings
+      $element-settings: map-get(nth($key, 2), $for);
+        @if $element-settings == null { @error 'Element "#{$for}" was not found in Config.'; }
+      // Requested value
+      $return-value: map-get($element-settings, $name);
+        @if $return-value == null { @error 'Value "#{$name}" was not found in Config.'; }
+    }
+  }
+
+  @if ($return-value != null) {
+    @return $return-value;
+  } @else {
+    @error 'Error. Value "#{$name}" for "#{$for}" on "#{$on}" was not found in Config';
+  }
+ 
+}

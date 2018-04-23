@@ -1,9 +1,10 @@
-/// :before Testing baseline container mixin
-/// @param {number} $line-height base line-height
-/// @param {number} $break main line divider ratio
-/// @param {number} $width line's border height
-/// @param {string} $color line's color
-/// @param {number} $test-lines Number of lines to highlight
+/** :before Testing baseline container mixin
+ * @param {number} $line-height base line-height
+ * @param {number} $break main line divider ratio
+ * @param {number} $width line's border height
+ * @param {string} $color line's color
+ * @param {number} $test-lines Number of lines to highlight
+ */
 @mixin set-baseline--before($line-height: 2.4rem, $break: 1, $width: 1px, $color: black, $test-lines: 100) {
   background-image: linear-gradient(0deg, $color $width, rgba(0, 0, 0, 0) 0);
   background-repeat: repeat; background-position: top;
@@ -11,12 +12,12 @@
   width: 100%; min-height: 100%; line-height: ($line-height / $break);
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
-	font-family: monospace; font-size: 11px; font-weight: bold; color: rgb(0, 0, 0);
-	overflow: hidden;
+  font-family: monospace; font-size: 11px; font-weight: bold; color: rgb(0, 0, 0);
+  overflow: hidden;
   @if (type-of($test-lines) == number and ceil($test-lines) > 0) or ($test-lines == auto) {
     position: absolute;
-		$point-lines: ' line-height: #{$line-height}\a';
-		@if ($test-lines == auto) { $test-lines: 100; }
+    $point-lines: ' line-height: #{$line-height}\a';
+    @if ($test-lines == auto) { $test-lines: 100; }
     @for $i from 2 through ceil($test-lines) {
       $point-lines: $point-lines+' line #{$i}\a';
     }
@@ -26,36 +27,33 @@
   }
 }
 
-/// Print Background Baselines for Testing
-/// @param {number} $break main line divider ratio
-/// @param {number} $width line's border height
-/// @param {string} $color line's color
-/// @param {number} $test-lines Number of lines to highlight
+/** Print Background Baseline for Testing
+ * @param {number} $break main line divider ratio
+ * @param {number} $width line's border height
+ * @param {string} $color line's color
+ * @param {number} $test-lines Number of lines to highlight
+ */
 @mixin test-baseline($break: 2, $width: 1px, $color: rgba(34, 167, 111, 0.63), $test-lines: 0) {
-	$line-height: 2.4rem; // default
-	padding: 0; position: relative;
+  $line-height: 2.4rem; // default
+  padding: 0; position: relative;
 
-	@if (type-of($test-lines) == number and ceil($test-lines) > 0) or ($test-lines == auto) {
-		&:after {
-			position: absolute; content: '';
-			background-color: $color;
-			width: 12rem; height: 100%;
-			top: 0; left: 0;
-		}
-	}
-
-	&:before {
-		@include set-baseline--before($line-height, $break, $width, $color, $test-lines);
+  @if (type-of($test-lines) == number and ceil($test-lines) > 0) or ($test-lines == auto) {
+    &:after {
+      position: absolute; content: '';
+      background-color: $color;
+      width: 14rem; height: 100%;
+      top: 0; left: 0;
+    }
   }
-  
-  /**
-   * Preparing data
-  */
 
-  // Walking settings map
-	$index: 0;
-	@each $key in $set-line-config {
-		$index: $index + 1;
+  &:before {
+    @include set-baseline--before($line-height, $break, $width, $color, $test-lines);
+  }
+
+  // Settings map
+  $index: 0;
+  @each $key in $set-line-config {
+    $index: $index + 1;
     $device: nth(map-keys($set-line-config), $index);
     $breakpoint: null;
 
@@ -71,20 +69,20 @@
     @if ($line-height == null) { @error 'Line height parameter missed.'; }
     
     // Init no-media mobile rules first
-		@if ($device == $set-line-default) {
-			@media (max-width: $breakpoint) {
-				&:before {
-					@include set-baseline--before($line-height, $break, $width, $color, $test-lines);
-				}
-			}
+    @if ($device == $set-line-default) {
+      @media (max-width: $breakpoint) {
+        &:before {
+          @include set-baseline--before($line-height, $break, $width, $color, $test-lines);
+        }
+      }
     } @else {
       // Init all other media queries
-			@media (min-width: $breakpoint) {
-				&:before {
-					@include set-baseline--before($line-height, $break, $width, $color, $test-lines);
-				}
-			}
-		}
-	}
+      @media (min-width: $breakpoint) {
+        &:before {
+          @include set-baseline--before($line-height, $break, $width, $color, $test-lines);
+        }
+      }
+    }
+  }
 
 }

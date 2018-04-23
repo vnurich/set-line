@@ -1,7 +1,8 @@
-/// Set breakpoint
-/// @param {string/number} $device - Device name from $root-typography-settings or rem/em/px
-/// @example @include set-breakpoint-for('tablet') { /*content*/ }
-/// @example @include set-breakpoint-for(120rem) { /*content*/ }
+/** Set breakpoint mixin
+ * @param {string/number} $device - Device name from $root-typography-settings or rem/em/px
+ * @example @include set-breakpoint-for('tablet') { @content; }
+ * @example @include set-breakpoint-for(120rem) { @content; }
+ */
 @mixin set-breakpoint($device) {
 
   @include test-env($from: 'set-breakpoint()'); // Testing first

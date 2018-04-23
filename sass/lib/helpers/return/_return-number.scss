@@ -1,7 +1,8 @@
-/// Test and return number from a string
-/// @autor https://codepen.io/corysimmons/pen/mVLVbo
-/// @param {string/number} $value
-/// @return {number} string -> number
+/** Test and return number from a string
+ * @autor https://codepen.io/corysimmons/pen/mVLVbo
+ * @param {string/number} $value
+ * @return {number} String to Number
+ */
 @function return-number($value) {
   @if type-of($value) == 'number' {
     @return $value;
@@ -11,8 +12,7 @@
     @error 'Value for return-number() must be a string.';
   }
   
-  $result: 0;
-  $digits: 0;
+  $result: 0; $digits: 0;
   $minus: str-slice($value, 1, 1) == '-';
   $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
   

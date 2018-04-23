@@ -1,49 +1,49 @@
-/// Printing main typography styles
-/// @param {string} $element expects to take element name from the config file
-/// @param {number} $line-height expects to take REM
-/// @param {number} $font-size expects to take REM
-/// @param {number} $cap-height expects to take RATIO
-/// @param {number} $space-top expects to take positive integer >= 0
-/// @param {number} $space-bottom expects to take positive integer >= 0
-/// @param {string} $font-weight expects to take rel format (e.g. 'normal', 400, etc.)
-/// @param {string} $font-style expects to take rel format (e.g. italic, normal, inherit)
-/// @param {string} $font-align expects to take rel format (e.g. left, right, justify)
-/// @param {list} $font-family expects to take list of strings with font-families
-/// @param {string} $before-media flag for excluding some parameters when printing styles @see /sass/helpers/_set-line-for.scss:80
+/** Printing main typography styles
+ * @param {string} $element expects to take element name from the config file
+ * @param {number} $line-height expects to take REM
+ * @param {number} $font-size expects to take REM
+ * @param {number} $cap-height expects to take RATIO
+ * @param {number} $space-top expects to take positive integer >= 0
+ * @param {number} $space-bottom expects to take positive integer >= 0
+ * @param {string} $font-weight expects to take rel format (e.g. 'normal', 400, etc.)
+ * @param {string} $font-style expects to take rel format (e.g. italic, normal, inherit)
+ * @param {string} $font-align expects to take rel format (e.g. left, right, justify)
+ * @param {list} $font-family expects to take list of strings with font-families
+ * @param {string} $before-media flag for excluding some parameters when printing styles @see /sass/helpers/_set-line-for.scss:80
+ */
 @mixin set-rhythm(
-    /**
-     * Sample
-     * $line-height:		2.4rem,
-     * $font-size:			1.6rem,
-     * $cap-height:		  0.7,
-     * $space-top:			0,
-     * $space-bottom: 	1,
-     * $font-weight:		'normal',
-     * $font-style:     'normal',
-     * $text-align:     'left',
-     * $font-family:    'sans-serif',
-     * $before-media:   null
-    */
-    $element: null, // important
-    $line-height: null, // important
-    $font-size: null, // important
-    $cap-height: null, // important
-    $space-top: null,
-    $space-bottom: null,
-    $font-weight: null,
-    $font-style: null,
-    $text-align: null,
-    $font-family: null,
-    $direction: null,
-    $before-media: null
+  /** Sample
+   * $line-height:		2.4rem,
+   * $font-size:			1.6rem,
+   * $cap-height:		  0.7,
+   * $space-top:			0,
+   * $space-bottom: 	1,
+   * $font-weight:		'normal',
+   * $font-style:     'normal',
+   * $text-align:     'left',
+   * $font-family:    'sans-serif',
+   * $before-media:   null
+  */
+  $element: null, // important
+  $line-height: null, // important
+  $font-size: null, // important
+  $cap-height: null, // important
+  $space-top: null,
+  $space-bottom: null,
+  $font-weight: null,
+  $font-style: null,
+  $text-align: null,
+  $font-family: null,
+  $direction: null,
+  $before-media: null
   ) {
 
   @include test-env($from: 'set-rhythm()'); // Testing first
   
   @if ($element == null) { @error 'Element parameter can not be omitted.'};
   
-  // Main parameters: font-size and line-height
   // Every $set-... var takes REM units
+  // Main properties: font-size and line-height
   $set-font-size: return-value-for('font-size',
     $with: ('font-size': $font-size));
 
@@ -91,9 +91,7 @@
         'space-top': $space-top
     ));
 
-    /**
-    * IMPORTANT
-    /**/
+    /** IMPORTANT
     /**/ @if ($before-media) { @include print-margin-padding(); }
     /**/ @include print-font-size($set-font-size);
     /**/ @include print-line-height($set-line-height);
@@ -101,9 +99,7 @@
     /**/ @include print-margin-bottom($set-margin-bottom);
     /**************************************************/
 
-    /**
-    * NOT IMPORTANT
-    /**/
+    /** NOT IMPORTANT
     /**/ @include print-font-weight($set-font-weight);
     /**/ @include print-font-family($set-font-family);
     /**/ @include print-font-style($set-font-style);
@@ -118,16 +114,12 @@
     $set-direction: return-value-for('direction',
       $with: ('direction': $direction));
 
-    /**
-    * IMPORTANT
-    /**/
+    /** IMPORTANT
     /**/ @include print-font-size($set-font-size);
     /**/ @include print-line-height($set-line-height);
     /**************************************************/
 
-    /**
-    * NOT IMPORTANT
-    /**/
+    /** NOT IMPORTANT
     /**/ @if ($before-media) { @include print-direction($set-direction); }
     /********************************************/
   }

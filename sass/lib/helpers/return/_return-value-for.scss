@@ -1,22 +1,23 @@
-/// List of available parameters to test and return 
-/// Important for Root:
-///   - font-size;
-///   - line-height.
-/// Important for Rhythm:
-///   - cap-height-rem;
-///   - font-size;
-///   - line-height;
-///   - margin-bottom;
-///   - padding-top.
-/// The rest parameters are not important:
-///   - direction;
-///   - font-family;
-///   - font-style;
-///   - font-weight;
-///   - text-align.
-/// @property {string} $parameter
-/// @property {map} $with
-/// @return {string/number} Returns required value
+/** List of available parameters to test and return 
+ * Important for Root:
+ *   - font-size;
+ *   - line-height.
+ * Important for Rhythm:
+ *   - cap-height-rem;
+ *   - font-size;
+ *   - line-height;
+ *   - margin-bottom;
+ *   - padding-top.
+ * The rest parameters are not important:
+ *   - direction;
+ *   - font-family;
+ *   - font-style;
+ *   - font-weight;
+ *   - text-align.
+ * @property {string} $parameter
+ * @property {map} $with
+ * @return {string/number} Returns required value
+ */
 
 @function return-value-for($parameter, $with) {
   

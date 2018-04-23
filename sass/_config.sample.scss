@@ -1,9 +1,14 @@
+// Sample config file
+
+// Import fonts
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i');
+
+// Set font families
 $font-family-serif: ('Merriweather', 'Times New Roman', 'serif');
 $font-family-sans-serif: ('Merriweather Sans', 'sans-serif');
 
-/// Sample config map
+// Set main config
 $set-config-sample: (
   'phone-vertical': (
     'root': (

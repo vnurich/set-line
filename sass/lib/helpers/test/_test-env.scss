@@ -1,7 +1,8 @@
-/// Entry test
-/// @requires $set-line-config
-/// @requires $set-line-default
-/// @param {string} $from - any alias
+/** Entry test
+ * @requires $set-line-config
+ * @requires $set-line-default
+ * @param {string} $from - any alias
+ */
 @mixin test-env($from: null) {
 
   @if $from == null { $from: 'nowhere'; }
