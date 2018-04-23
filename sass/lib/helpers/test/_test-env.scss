@@ -1,0 +1,18 @@
+/** Entry test
+ * @requires $set-line-config
+ * @requires $set-line-default
+ * @param {string} $from - any alias
+ */
+@mixin test-env($from: null) {
+
+  @if $from == null { $from: 'nowhere'; }
+
+  @if $set-line-config == null or type-of($set-line-config) != map {
+    @error 'From: #{$from}. Please set $set-line-config var before executing mixins.';
+  }
+
+  @if $set-line-default == null {
+    @error 'From: #{$from}. Please set $set-line-default var before executing mixins.';
+  }
+
+}

@@ -1,0 +1,50 @@
+/** Set breakpoint mixin
+ * @param {string/number} $device - Device name from $root-typography-settings or rem/em/px
+ * @example @include set-breakpoint-for('tablet') { @content; }
+ * @example @include set-breakpoint-for(120rem) { @content; }
+ */
+@mixin set-breakpoint($device) {
+
+  @include test-env($from: 'set-breakpoint()'); // Testing first
+
+  // Check input
+  @if (type-of($device) != number) and (type-of($device) != string) {
+    @error 'The $root-breakpoint parameter can only be a number or a string.';
+  }
+
+  // First check by name inside settings map
+  $device-exist: false;
+  $index: 0;
+  @each $key in $set-line-config {
+    $index: $index + 1;
+    $device-in-loop: nth(map-keys($set-line-config), $index);
+    
+    // Root settings
+    $root-settings: map-get(nth($key, 2), 'root');
+      @if $root-settings == null { @error 'Element "root" was not found in Settings Map.'; }
+    
+    $root-breakpoint: map-get($root-settings, 'breakpoint');
+      @if ($root-breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+
+    // Print @media end finish
+    @if ($device-in-loop == $device) {
+      $device-exist: true;
+      @media (min-width: $root-breakpoint) {
+        @content;
+      }
+    }
+
+  }
+
+  @if (not $device-exist) {
+    // Check for rem/em/px then
+    @if (type-of($device) == number and $device > 0) {
+      @media (min-width: $device) {
+        @content;
+      }
+    } @else {
+      @error 'Unknown #{type-of($device)}-value "#{$device}".';
+    }
+  }
+
+}

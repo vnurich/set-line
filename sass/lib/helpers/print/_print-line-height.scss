@@ -1,0 +1,8 @@
+@mixin print-line-height($line-height) {
+  @if ($line-height != null) {
+    line-height: $line-height;
+  } @else {
+    @error 'Line height is important parameter and can not be omitted.';
+  }
+}
+//

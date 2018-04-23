@@ -1,0 +1,28 @@
+/** Testing "property:value" pairs for printing styles without errors
+ * @param {list} $input-data
+ * @param {list} $expected-data
+ * @return {list} $expected-data Updated (filled with data) list
+ */
+@function test-input-data($input-data, $expected-data) {
+	$expected-data-size: length(map-keys($expected-data));
+	$expected-data-source: $expected-data;
+	$index: 0;
+
+	@each $properties in $input-data {
+		$index: $index + 1;
+		$testing-property: nth(map-keys($expected-data), $index);
+
+		$property-given: nth($properties, 1);
+		$value-given: nth($properties, 2);
+		
+		@if ($property-given == $testing-property ) {
+			$expected-data: map-merge($expected-data, ($testing-property: $value-given));
+		}
+	}
+
+	@if ($index != $expected-data-size) {
+		@error 'Error while filling data. Input: "#{$input-data}". Expected: "#{$expected-data-source}".';
+	}
+
+	@return $expected-data;
+}

@@ -1,0 +1,8 @@
+@mixin print-padding-top($padding-top) {
+  @if ($padding-top != null) {
+    padding-top: $padding-top;
+  } @else {
+    @error 'Padding top is important parameter and can not be omitted.';
+  }
+}
+//

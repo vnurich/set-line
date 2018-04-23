@@ -1,0 +1,6 @@
+@mixin print-direction($direction) {
+  @if ($direction != null) {
+    direction: $direction;
+  }
+}
+//

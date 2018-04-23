@@ -1,0 +1,110 @@
+/** Setting Styles with Breakpoints for selected Element
+ * @requires {string} $set-line-default
+ * @requires {map} $set-line-config
+ * @param {string} $element 
+ * @param {number} $transition opt. transition time
+ * @param {boolean} $debug for logging element's parameters in loop
+ */
+@mixin set-line($element, $default: null, $transition: null, $debug: false) {
+
+  @include test-env($from: 'set-line()'); // Testing first
+
+  @if ($debug) {
+    // stop before
+    // @if $element == 'test-element' { @error 'Stop before #{$element} ------------------ /\\'; }
+  }
+
+  //First check source data
+  @if ($element != null) and
+    (type-of($element) == string) and
+    (str-length($element) > 0) {
+      $index: 0;
+      /*
+      Each root key in Config is a device name.
+      $set-line-config: (
+        'device-name': (
+        'root': ( // root is important
+          'font-size': XX%,
+          'breakpoint':  YYrem,
+          'line-height': NNrem,
+          'direction': ltr
+        ),
+        'element-one': (font-size, cap-height-ratio, space-top, space-bottom, font-weight, font-style, text-align, font-family),
+        'element-two': (font-size, cap-height-ratio, space-top, space-bottom, font-weight, font-style, text-align, font-family),
+        'element-xxx': (font-size, cap-height-ratio, space-top, space-bottom, font-weight, font-style, text-align, font-family),
+      ));
+      */
+
+      @each $key in $set-line-config {
+        $index: $index + 1;
+        $device: nth(map-keys($set-line-config), $index);
+
+        // Element's settings
+        $element-settings: map-get(nth($key, 2), $element);
+          @if $element-settings == null { @error 'Element "#{$element}" was not found in Config.'; }
+
+        // Take root properties for global breakpoint and line-height
+        $root-breakpoint: null;
+        $root-line-height: null;
+        @if ($element == 'root') {
+          $root-breakpoint: map-get($element-settings, 'breakpoint');
+          $root-line-height: map-get($element-settings, 'line-height');
+        } @else {
+          $root-breakpoint: map-get(map-get(nth($key, 2), 'root'), 'breakpoint');
+          $root-line-height: map-get(map-get(nth($key, 2), 'root'), 'line-height');
+        }
+
+        @if ($root-breakpoint == null) { @error 'Breakpoint parameter missed.'; }
+        @if ($root-line-height == null) { @error 'Line height parameter missed.'; }
+        
+        $element-font-size: map-get($element-settings, 'font-size');
+        $element-cap-height: map-get($element-settings, 'cap-height');
+        $element-space-top: map-get($element-settings, 'space-top');
+        $element-space-bottom: map-get($element-settings, 'space-bottom');
+        $element-font-weight: map-get($element-settings, 'font-weight');
+        $element-font-style: map-get($element-settings, 'font-style');
+        $element-text-align: map-get($element-settings, 'text-align');
+        $element-font-family: map-get($element-settings, 'font-family');
+
+        @if ($debug) {
+          @debug '\\/-----element in loop-----\\/';
+          @debug 'root line-height is #{$root-line-height}';
+          @debug 'device: #{$device}, breakpoint: #{$root-breakpoint}.';
+          @debug 'element: #{$element}, settings: (#{$element-settings});';
+        }
+
+        // Opt. transition
+        @if ($transition != null) and (type-of($transition) == number) and ($transition >= 0) {
+          transition: unquote('font-size #{$transition}s');
+          transition-timing-function: cubic-bezier(.65, 1.95, .03, .32);
+        }
+
+        // Init no-media mobile rules first
+        @if ($device == $set-line-default) {
+          @include set-rhythm(
+            $element,
+            $root-line-height, $element-font-size, $element-cap-height, $element-space-top, $element-space-bottom, $element-font-weight, $element-font-style, $element-text-align, $element-font-family,
+            $before-media: true
+          );
+        } @else {
+          // Init all other media queries
+          @media (min-width: $root-breakpoint) {
+            @include set-rhythm(
+              $element,
+              $root-line-height, $element-font-size, $element-cap-height, $element-space-top, $element-space-bottom, $element-font-weight, $element-font-style, $element-text-align, $element-font-family,
+              $before-media: false
+            );
+          }
+        }
+
+      }
+  } @else {
+    @error 'Something wrong with $element parameter ("#{$element}") in set-line-for mixin.';
+  }
+
+  @if ($debug) {
+    // stop after
+    // @if $element == 'test-element' { @error 'Stop after #{$element} ------------------ /\\'; }
+  }
+
+}
