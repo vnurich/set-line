@@ -1,10 +1,10 @@
 /*!
- * set-line v0.0.1
- * Copyright (c) 2018 Vasily Nikolaev
+ * set-line v1.0.0
+ * Copyright (c) 2018 Vasya Nikolaev
  * Licensed under MIT
  */
 
-$set-line-config: null;
-$set-line-default: null;
+$set-line-config: null !default;
+$set-line-default: null !default;
 
 @import './lib/index';
