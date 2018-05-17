@@ -1,8 +1,8 @@
 {
   "name": "set-line",
-  "version": "0.0.1",
-  "description": "Responsive line-height using config map",
-  "author": "Vasily Nikolaev <vnurich@gmail.com>",
+  "version": "1.0.0",
+  "description": "Responsive line-height for the perfect vertical rhythm",
+  "author": "Vasya Nikolaev <vnurich@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

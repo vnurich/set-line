@@ -7,6 +7,7 @@
 // Set font families
 $font-family-serif: ('Merriweather', 'Times New Roman', 'serif');
 $font-family-sans-serif: ('Merriweather Sans', 'sans-serif');
+$font-family-monospace: ('Courier', 'monospace');
 
 // Set main config
 $set-config-sample: (
@@ -23,7 +24,9 @@ $set-config-sample: (
     'h4': ('font-size': 1.8rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h5': ('font-size': 1.8rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h6': ('font-size': 1.6rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
-    'test-element': ('font-size': 2rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+    'test-element': ('font-size': 2rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'version': ('font-size': 1.4rem, 'cap-height': 0.74, 'space-top': 0, 'space-bottom': 0, 'font-weight': 300, 'text-align': right, 'font-family': $font-family-monospace),
+    'hide-guides': ('font-size': 1.2rem, 'cap-height': 0.8, 'space-top': 1, 'space-bottom': 1, 'font-weight': bold, 'font-style': normal, 'text-align': right, 'font-family': $font-family-sans-serif)
   ),  
   'phone-horizontal': (
     'root': (
@@ -38,7 +41,9 @@ $set-config-sample: (
     'h4': ('font-size': 2.1rem, 'cap-height': 0.86, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h5': ('font-size': 2rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h6': ('font-size': 1.8rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
-    'test-element': ('font-size': 2.2rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+    'test-element': ('font-size': 2.2rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'version': ('font-size': 1.4rem, 'cap-height': 0.72, 'space-top': 0, 'space-bottom': 0, 'font-weight': 300, 'text-align': right, 'font-family': $font-family-monospace),
+    'hide-guides': ('font-size': 1.4rem, 'cap-height': 0.76, 'space-top': 1, 'space-bottom': 1, 'font-weight': bold, 'font-style': normal, 'text-align': right, 'font-family': $font-family-sans-serif)
   ),
   'tablet': (
     'root': (
@@ -53,7 +58,9 @@ $set-config-sample: (
     'h4': ('font-size': 2.4rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h5': ('font-size': 2.2rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h6': ('font-size': 2rem, 'cap-height': 0.78, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
-    'test-element': ('font-size': 2.8rem, 'cap-height': 0.66, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+    'test-element': ('font-size': 2.8rem, 'cap-height': 0.66, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'version': ('font-size': 1.4rem, 'cap-height': 0.68, 'space-top': 0, 'space-bottom': 0, 'font-weight': 300, 'text-align': right, 'font-family': $font-family-monospace),
+    'hide-guides': ('font-size': 1.4rem, 'cap-height': 0.7, 'space-top': 0, 'space-bottom': 1, 'font-weight': bold, 'font-style': normal, 'text-align': right, 'font-family': $font-family-sans-serif)
   ),
   'terminal': (
     'root': (
@@ -68,7 +75,9 @@ $set-config-sample: (
     'h4': ('font-size': 2.6rem, 'cap-height': 0.84, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h5': ('font-size': 2.4rem, 'cap-height': 0.82, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
     'h6': ('font-size': 2.2rem, 'cap-height': 0.8, 'space-top': 2, 'space-bottom': 1, 'font-weight': 700, 'font-style': normal, 'text-align': left, 'font-family': $font-family-sans-serif),
-    'test-element': ('font-size': 2.8rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+    'test-element': ('font-size': 2.8rem, 'cap-height': 0.64, 'space-top': 0, 'space-bottom': 0, 'font-weight': 700, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'version': ('font-size': 1.4rem, 'cap-height': 0.68, 'space-top': 0, 'space-bottom': 0, 'font-weight': 300, 'text-align': right, 'font-family': $font-family-monospace),
+    'hide-guides': ('font-size': 1.4rem, 'cap-height': 0.7, 'space-top': 0, 'space-bottom': 1, 'font-weight': bold, 'font-style': normal, 'text-align': right, 'font-family': $font-family-sans-serif)
   ), 
   'desktop': (
     'root': (
@@ -83,6 +92,8 @@ $set-config-sample: (
     'h4': ('font-size': 3.4rem, 'cap-height': 0.66, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
     'h5': ('font-size': 3.2rem, 'cap-height': 0.64, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
     'h6': ('font-size': 3rem, 'cap-height': 0.62, 'space-top': 1, 'space-bottom': 0, 'font-weight': 800, 'font-style': normal, 'text-align': left, 'font-family': $font-family-serif),
-    'test-element': ('font-size': 3rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': normal, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif)
+    'test-element': ('font-size': 3rem, 'cap-height': 0.62, 'space-top': 0, 'space-bottom': 0, 'font-weight': normal, 'font-style': italic, 'text-align': left, 'font-family': $font-family-serif),
+    'version': ('font-size': 1.4rem, 'cap-height': 0.68, 'space-top': 0, 'space-bottom': 0, 'font-weight': 300, 'text-align': right, 'font-family': $font-family-monospace),
+    'hide-guides': ('font-size': 1.4rem, 'cap-height': 0.7, 'space-top': 0, 'space-bottom': 1, 'font-weight': bold, 'font-style': normal, 'text-align': right, 'font-family': $font-family-sans-serif)
   )
 );

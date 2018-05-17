@@ -20,14 +20,21 @@ $root-gap-base: get-value('line-height', $for: 'root', $on: 'tablet');
 html { @include set-line('root'); }
 
 body {
+  width: 100%; height: 100%; margin: 0;
+  padding: 0 $root-gap-base;
+}
+
+.body--test-baseline {
   @include test-baseline(
     $break: 1,
     $width: 1px,
     $color: rgba(34, 167, 112, 0.16),
     $test-lines: auto
   );
-  width: 100%; height: 100%; margin: 0;
-  padding: 0 $root-gap-base;
+}
+
+body:before {
+  color: crimson !important;
 }
 
 p   { @include set-line('p'); } 
@@ -38,7 +45,21 @@ h4  { @include set-line('h4'); }
 h5  { @include set-line('h5'); }
 h6  { @include set-line('h6'); }
 
-.test-element { @include set-line('test-element', $debug: false); }
+a,a:link, a:visited, a:active {
+  color: crimson;
+  text-decoration: none;
+  border-bottom: 2px solid lighten(crimson, 40%);
+}
+a:hover {
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+
+.test-element {
+  @include set-line('test-element', $debug: false);
+  span {
+    color: crimson;
+  }
+}
 
 .test-block {
 
@@ -46,14 +67,25 @@ h6  { @include set-line('h6'); }
   margin: 0 auto;
   color: black;
 
-  @include test-baseline(
-    $break: 2,
-    $width: 1px,
-    $color: rgba(60, 156, 219, 0.295)
-  );
-
   @include set-breakpoint('desktop') {
     color: #222;
   }
 
+  &--test-baseline {
+    @include test-baseline(
+      $break: 2,
+      $width: 1px,
+      $color: rgba(60, 156, 219, 0.295)
+    );
+  }
+
+}
+
+.version {
+  @include set-line('version');
+  a { color: darkgray; border-bottom: 2px solid rgba(0,0,0,0); }
+}
+
+.hide-guides {
+  @include set-line('hide-guides');
 }
