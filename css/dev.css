@@ -1,0 +1,214 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i");
+
+* { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html {   font-size: 62.5%;  line-height: 2rem;    }
+
+@media (min-width: 36em) { html {  font-size: 62.5%;  line-height: 2.2rem;    } }
+
+@media (min-width: 48em) { html {  font-size: 62.5%;  line-height: 2.8rem;    } }
+
+@media (min-width: 62em) { html {  font-size: 62.5%;  line-height: 2.8rem;    } }
+
+@media (min-width: 87.5em) { html {  font-size: 62.5%;  line-height: 3rem;    } }
+
+body { width: 100%; height: 100%; margin: 0; padding: 0 2.8rem; }
+
+.body--test-baseline { padding: 0; position: relative; }
+
+.body--test-baseline:after { position: absolute; content: ''; background-color: rgba(34, 167, 112, 0.16); width: 14rem; height: 100%; top: 0; left: 0; }
+
+.body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 2.4rem 2.4rem; background-size: 2.4rem 2.4rem; width: 100%; min-height: 100%; line-height: 2.4rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 2.4rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; }
+
+@media (max-width: 35.999em) { .body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 2rem 2rem; background-size: 2rem 2rem; width: 100%; min-height: 100%; line-height: 2rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 2rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; } }
+
+@media (min-width: 36em) { .body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 2.2rem 2.2rem; background-size: 2.2rem 2.2rem; width: 100%; min-height: 100%; line-height: 2.2rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 2.2rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; } }
+
+@media (min-width: 48em) { .body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 2.8rem 2.8rem; background-size: 2.8rem 2.8rem; width: 100%; min-height: 100%; line-height: 2.8rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 2.8rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; } }
+
+@media (min-width: 62em) { .body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 2.8rem 2.8rem; background-size: 2.8rem 2.8rem; width: 100%; min-height: 100%; line-height: 2.8rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 2.8rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; } }
+
+@media (min-width: 87.5em) { .body--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(34, 167, 112, 0.16) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 3rem 3rem; background-size: 3rem 3rem; width: 100%; min-height: 100%; line-height: 3rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: " line-height: 3rem\a  line 2\a  line 3\a  line 4\a  line 5\a  line 6\a  line 7\a  line 8\a  line 9\a  line 10\a  line 11\a  line 12\a  line 13\a  line 14\a  line 15\a  line 16\a  line 17\a  line 18\a  line 19\a  line 20\a  line 21\a  line 22\a  line 23\a  line 24\a  line 25\a  line 26\a  line 27\a  line 28\a  line 29\a  line 30\a  line 31\a  line 32\a  line 33\a  line 34\a  line 35\a  line 36\a  line 37\a  line 38\a  line 39\a  line 40\a  line 41\a  line 42\a  line 43\a  line 44\a  line 45\a  line 46\a  line 47\a  line 48\a  line 49\a  line 50\a  line 51\a  line 52\a  line 53\a  line 54\a  line 55\a  line 56\a  line 57\a  line 58\a  line 59\a  line 60\a  line 61\a  line 62\a  line 63\a  line 64\a  line 65\a  line 66\a  line 67\a  line 68\a  line 69\a  line 70\a  line 71\a  line 72\a  line 73\a  line 74\a  line 75\a  line 76\a  line 77\a  line 78\a  line 79\a  line 80\a  line 81\a  line 82\a  line 83\a  line 84\a  line 85\a  line 86\a  line 87\a  line 88\a  line 89\a  line 90\a  line 91\a  line 92\a  line 93\a  line 94\a  line 95\a  line 96\a  line 97\a  line 98\a  line 99\a  line 100\a"; z-index: 1; white-space: pre; text-align: left; } }
+
+body:before { color: crimson !important; }
+
+p {   margin: 0; padding: 0;  font-size: 1.4rem;  line-height: 2rem;  padding-top: 0.4rem;  margin-bottom: 1.6rem;   font-weight: 400;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: justify;  }
+
+@media (min-width: 36em) { p {   font-size: 1.6rem;  line-height: 2.2rem;  padding-top: 0.44rem;  margin-bottom: 1.76rem;   font-weight: 400;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { p {   font-size: 1.8rem;  line-height: 2.8rem;  padding-top: 0.728rem;  margin-bottom: 2.072rem;   font-weight: 400;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { p {   font-size: 1.8rem;  line-height: 2.8rem;  padding-top: 0.728rem;  margin-bottom: 2.072rem;   font-weight: 400;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { p {   font-size: 2rem;  line-height: 3rem;  padding-top: 0.72rem;  margin-bottom: 2.28rem;   font-weight: 300;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+h1 {   margin: 0; padding: 0;  font-size: 2rem;  line-height: 3rem;  padding-top: 1.72rem;  margin-bottom: 1.28rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h1 {   font-size: 2.8rem;  line-height: 3.3rem;  padding-top: 1.672rem;  margin-bottom: 1.628rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h1 {   font-size: 3.2rem;  line-height: 4.2rem;  padding-top: 2.296rem;  margin-bottom: 1.904rem;   font-weight: 800;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h1 {   font-size: 3.6rem;  line-height: 4.2rem;  padding-top: 2.184rem;  margin-bottom: 2.016rem;   font-weight: 800;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h1 {   font-size: 4.6rem;  line-height: 6rem;  padding-top: 1.26rem;  margin-bottom: 1.74rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  } }
+
+h2 {   margin: 0; padding: 0;  font-size: 1.9rem;  line-height: 2rem;  padding-top: 4.24rem;  margin-bottom: 1.76rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h2 {   font-size: 2.2rem;  line-height: 3.3rem;  padding-top: 4.092rem;  margin-bottom: 1.408rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h2 {   font-size: 2.6rem;  line-height: 2.8rem;  padding-top: 6.048rem;  margin-bottom: 2.352rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h2 {   font-size: 3rem;  line-height: 4.2rem;  padding-top: 5.096rem;  margin-bottom: 1.904rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h2 {   font-size: 4rem;  line-height: 4.5rem;  padding-top: 5.28rem;  margin-bottom: 2.22rem;   font-weight: 800;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+h3 {   margin: 0; padding: 0;  font-size: 1.8rem;  line-height: 2rem;  padding-top: 4.28rem;  margin-bottom: 1.72rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h3 {   font-size: 2.1rem;  line-height: 2.2rem;  padding-top: 4.708rem;  margin-bottom: 1.892rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h3 {   font-size: 2.4rem;  line-height: 2.8rem;  padding-top: 6.104rem;  margin-bottom: 2.296rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h3 {   font-size: 2.8rem;  line-height: 4.2rem;  padding-top: 5.208rem;  margin-bottom: 1.792rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h3 {   font-size: 3.6rem;  line-height: 4.5rem;  padding-top: 5.4rem;  margin-bottom: 2.1rem;   font-weight: 800;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+h4 {   margin: 0; padding: 0;  font-size: 1.8rem;  line-height: 2rem;  padding-top: 4.28rem;  margin-bottom: 1.72rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h4 {   font-size: 2.1rem;  line-height: 2.2rem;  padding-top: 4.708rem;  margin-bottom: 1.892rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h4 {   font-size: 2.4rem;  line-height: 2.8rem;  padding-top: 6.104rem;  margin-bottom: 2.296rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h4 {   font-size: 2.6rem;  line-height: 2.8rem;  padding-top: 6.048rem;  margin-bottom: 2.352rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h4 {   font-size: 3.4rem;  line-height: 4.5rem;  padding-top: 5.52rem;  margin-bottom: 1.98rem;   font-weight: 800;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+h5 {   margin: 0; padding: 0;  font-size: 1.8rem;  line-height: 2rem;  padding-top: 4.28rem;  margin-bottom: 1.72rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h5 {   font-size: 2rem;  line-height: 2.2rem;  padding-top: 4.752rem;  margin-bottom: 1.848rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h5 {   font-size: 2.2rem;  line-height: 2.8rem;  padding-top: 6.104rem;  margin-bottom: 2.296rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h5 {   font-size: 2.4rem;  line-height: 2.8rem;  padding-top: 6.104rem;  margin-bottom: 2.296rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h5 {   font-size: 3.2rem;  line-height: 4.5rem;  padding-top: 5.58rem;  margin-bottom: 1.92rem;   font-weight: 800;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+h6 {   margin: 0; padding: 0;  font-size: 1.6rem;  line-height: 2rem;  padding-top: 4.32rem;  margin-bottom: 1.68rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  }
+
+@media (min-width: 36em) { h6 {   font-size: 1.8rem;  line-height: 2.2rem;  padding-top: 4.796rem;  margin-bottom: 1.804rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 48em) { h6 {   font-size: 2rem;  line-height: 2.8rem;  padding-top: 6.216rem;  margin-bottom: 2.184rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 62em) { h6 {   font-size: 2.2rem;  line-height: 2.8rem;  padding-top: 6.16rem;  margin-bottom: 2.24rem;   font-weight: 700;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: left;  } }
+
+@media (min-width: 87.5em) { h6 {   font-size: 3rem;  line-height: 4.5rem;  padding-top: 5.64rem;  margin-bottom: 1.86rem;   font-weight: 800;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: normal;  text-align: left;  } }
+
+a, a:link, a:visited, a:active { color: crimson; text-decoration: none; border-bottom: 2px solid #fac3ce; }
+
+a:hover { border-bottom: 2px solid rgba(0, 0, 0, 0); }
+
+.test-element {   margin: 0; padding: 0;  font-size: 2rem;  line-height: 3rem;  padding-top: 1.72rem;  margin-bottom: 1.28rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  }
+
+@media (min-width: 36em) { .test-element {   font-size: 2.2rem;  line-height: 3.3rem;  padding-top: 1.936rem;  margin-bottom: 1.364rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  } }
+
+@media (min-width: 48em) { .test-element {   font-size: 2.8rem;  line-height: 4.2rem;  padding-top: 2.352rem;  margin-bottom: 1.848rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  } }
+
+@media (min-width: 62em) { .test-element {   font-size: 2.8rem;  line-height: 4.2rem;  padding-top: 2.408rem;  margin-bottom: 1.792rem;   font-weight: 700;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  } }
+
+@media (min-width: 87.5em) { .test-element {   font-size: 3rem;  line-height: 4.5rem;  padding-top: 2.64rem;  margin-bottom: 1.86rem;   font-weight: normal;  font-family: 'Merriweather', 'Times New Roman', serif;  font-style: italic;  text-align: left;  } }
+
+.test-element span { color: crimson; }
+
+.test-block { max-width: 96rem; margin: 0 auto; color: black; }
+
+@media (min-width: 87.5em) { .test-block { color: #222; } }
+
+.test-block--test-baseline { padding: 0; position: relative; }
+
+.test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1.2rem 1.2rem; background-size: 1.2rem 1.2rem; width: 100%; min-height: 100%; line-height: 1.2rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; }
+
+@media (max-width: 35.999em) { .test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1rem 1rem; background-size: 1rem 1rem; width: 100%; min-height: 100%; line-height: 1rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; } }
+
+@media (min-width: 36em) { .test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1.1rem 1.1rem; background-size: 1.1rem 1.1rem; width: 100%; min-height: 100%; line-height: 1.1rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; } }
+
+@media (min-width: 48em) { .test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1.4rem 1.4rem; background-size: 1.4rem 1.4rem; width: 100%; min-height: 100%; line-height: 1.4rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; } }
+
+@media (min-width: 62em) { .test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1.4rem 1.4rem; background-size: 1.4rem 1.4rem; width: 100%; min-height: 100%; line-height: 1.4rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; } }
+
+@media (min-width: 87.5em) { .test-block--test-baseline:before { background-image: -webkit-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: -o-linear-gradient(bottom, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-image: linear-gradient(0deg, rgba(60, 156, 219, 0.295) 1px, rgba(0, 0, 0, 0) 0); background-repeat: repeat; background-position: top; -webkit-background-size: 1.5rem 1.5rem; background-size: 1.5rem 1.5rem; width: 100%; min-height: 100%; line-height: 1.5rem; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: monospace; font-size: 11px; font-weight: bold; color: black; overflow: hidden; position: absolute; content: ' '; z-index: -1; } }
+
+.version {   margin: 0; padding: 0;  font-size: 1.4rem;  line-height: 2rem;  padding-top: 0.52rem;  margin-bottom: -0.52rem;   font-weight: 300;  font-family: 'Courier', 'monospace';   text-align: right;  }
+
+@media (min-width: 36em) { .version {   font-size: 1.4rem;  line-height: 2.2rem;  padding-top: 0.616rem;  margin-bottom: -0.616rem;   font-weight: 300;  font-family: 'Courier', 'monospace';   text-align: right;  } }
+
+@media (min-width: 48em) { .version {   font-size: 1.4rem;  line-height: 2.8rem;  padding-top: 0.896rem;  margin-bottom: -0.896rem;   font-weight: 300;  font-family: 'Courier', 'monospace';   text-align: right;  } }
+
+@media (min-width: 62em) { .version {   font-size: 1.4rem;  line-height: 2.8rem;  padding-top: 0.896rem;  margin-bottom: -0.896rem;   font-weight: 300;  font-family: 'Courier', 'monospace';   text-align: right;  } }
+
+@media (min-width: 87.5em) { .version {   font-size: 1.4rem;  line-height: 3rem;  padding-top: 0.96rem;  margin-bottom: -0.96rem;   font-weight: 300;  font-family: 'Courier', 'monospace';   text-align: right;  } }
+
+.version a { color: darkgray; border-bottom: 2px solid rgba(0, 0, 0, 0); }
+
+.hide-guides {   margin: 0; padding: 0;  font-size: 1.2rem;  line-height: 2rem;  padding-top: 2.4rem;  margin-bottom: 1.6rem;   font-weight: bold;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: right;  }
+
+@media (min-width: 36em) { .hide-guides {   font-size: 1.4rem;  line-height: 2.2rem;  padding-top: 2.728rem;  margin-bottom: 1.672rem;   font-weight: bold;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: right;  } }
+
+@media (min-width: 48em) { .hide-guides {   font-size: 1.4rem;  line-height: 2.8rem;  padding-top: 0.84rem;  margin-bottom: 1.96rem;   font-weight: bold;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: right;  } }
+
+@media (min-width: 62em) { .hide-guides {   font-size: 1.4rem;  line-height: 2.8rem;  padding-top: 0.84rem;  margin-bottom: 1.96rem;   font-weight: bold;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: right;  } }
+
+@media (min-width: 87.5em) { .hide-guides {   font-size: 1.4rem;  line-height: 3rem;  padding-top: 0.9rem;  margin-bottom: 2.1rem;   font-weight: bold;  font-family: 'Merriweather Sans', sans-serif;  font-style: normal;  text-align: right;  } }
+
+
