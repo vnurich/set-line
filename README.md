@@ -2,13 +2,7 @@
 
 Live test: https://vnurich.github.io/set-line/
 
-`set-line` is a config file reader (SASS-map) for clean and responsive vertical rhythm, focusing on root ```font-size``` and ```line-height``` for each necessary breakpoint. The element's alignment calculated by ```padding-top``` and ```margin-bottom``` properties. And the only value that will have to be considered manually is the ```cap-height``` which is the proportion number (~0.5-0.9) of the font-size.
-
-## Features
-
-* SASS only, no calc(), JS and other things;
-* everything compiled to REM units;
-* tested inside;
+`set-line` is a config file reader (SASS-map) for clean and responsive vertical rhythm, focusing on root ```font-size``` and ```line-height``` for each necessary breakpoint. The element's alignment calculated by ```padding-top``` and ```margin-bottom``` properties. And the only value that will have to be considered manually is the ```cap-height``` which is the proportion number (~0.5-0.9) of the ```font-size```.
 
 ## An element can contain the following parameters
 
@@ -55,15 +49,13 @@ $my-var-one: get-value('line-height', $for: 'root', $on: 'tablet');
 $my-var-two: get-value('font-size', $for: 'h1', $on: 'desktop');
 ```
 
-Mixin *set-breakpoint()* creates `@media(min-width:val) { }` wrapper:
+Mixin *set-breakpoint()* creates `@media(min-width: [val]) { [content] }` wrapper:
 ```scss
-@include set-breakpoint-for('tablet') { @content; } // value taken from the config file
-@include set-breakpoint-for(120rem) { @content; } // value set manually. Can be rem/em/px
+@include set-breakpoint-for('tablet') { /*content*/ } // value taken from the config file
+@include set-breakpoint-for(120rem) { /*content*/ } // value set manually. Can be rem/em/px
 ```
 
-## Getting started from the scratch
-
-At first glance the structure of the config file may seem complicated and confusing. 
+## Getting started
 
 ### Install and import lib
 
@@ -76,7 +68,7 @@ npm install set-line
 @import 'path/to/config'; // import main config file
 
 $set-line-config: $my-set-line-config; // sass var name from your config file 
-$set-line-default: 'my-mobile-first-breakpoint'; // root device name from your config file
+$set-line-default: 'my-mobile-first-breakpoint'; // root (default/mobile-first) device name from your config file
 ```
 
 ### Prepare config file
@@ -146,3 +138,23 @@ $my-set-line-config: (
   /// and so on...
 );
 ```
+
+## Dev environment
+
+Clone or download this repo:
+```bash
+git clone https://github.com/vnurich/set-line.git
+```
+
+Install dependencies:
+```bash
+npm install
+```
+
+Run local server (http://localhost:3000)
+```bash
+npm run dev
+```
+
+## License
+This project is licensed under the MIT License
